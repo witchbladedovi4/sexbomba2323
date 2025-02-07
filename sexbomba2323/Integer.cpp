@@ -1,36 +1,66 @@
-#include "52yariklohh.hpp"
+#include "Integer.hpp"
 #include <stdexcept>
 
-Integer::Integer(int val) : value(val) {}
+Integer::Integer() :Integer(false, 0u) {};
+Integer::Integer(bool sign, unsigned units) :sign_(sign), units_(units) {};
+Integer::Integer(int value) {};
 
 
+void Integer::SetSign(bool sign){}
+void Integer::SetUnits(unsigned units) {};
 
-bool Integer::Integer::isEven() {
-    return value % 2 == 0;
+bool Integer::GetSign() const {};
+unsigned Integer::GetUnits() const {};
+
+//set
+void Integer::SetSign(bool sign)
+{
+    this->sign_ = sign;
 }
 
-bool Integer::isOdd() {
-    return value % 2 != 0;
+void Integer::SetUnits(unsigned units)
+{
+    this->units_ = units;
 }
 
-bool Integer::isPositive() {
-    return value > 0;
+// get
+bool Integer::GetSign() const
+{
+    return sign_;
 }
 
-bool Integer::isNegative() {
-    return value < 0;
+unsigned Integer::GetUnits() const
+{
+    return units_;
 }
 
-bool Integer::isProstoe() {
-    if (value < 2) return false;
-    for (int i = 2; i <= value / 2; i++) {
-        if (value % i == 0)
+
+bool Integer::Integer::isEven() const {
+    return units_ % 2 == 0;
+}
+
+bool Integer::isOdd() const {
+    return units_ % 2 != 0;
+}
+
+bool Integer::isPositive() const {
+    return units_ > 0;
+}
+
+bool Integer::isNegative() const {
+    return units_ < 0;
+}
+
+bool Integer::isSimple() const {
+    if (units_ < 2) return false;
+    for (int i = 2; i <= units_ / 2; i++) {
+        if (units_ % i == 0)
             return false;
     }
     return true;
 }
 
-int Integer::nod(int a, int b) {
+int Integer::nod(int a, int b) const {
     while (b != 0) {
         int temp = b;
         b = a % b;
@@ -39,19 +69,19 @@ int Integer::nod(int a, int b) {
     return a;
 }
 
-int Integer::nod2(Integer other) {
-    return nod(value, other.value);
+int Integer::nod2(Integer other) const {
+    return nod(units_, other.units_);
 }
 
-int Integer::nok(Integer other) {
+int Integer::nok(Integer other) const {
     return (value / nod(value, other.value)) * other.value;
 }
 
-bool Integer::isCoprime(Integer other) {
+bool Integer::isCoprime(Integer other) const {
     return nod(value, other.value) == 1;
 }
 
-Integer Integer::operator+(const Integer other) const {
+Integer& Integer::operator+(const Integer other) const {
     return Integer(value + other.value);
 }
 
@@ -66,29 +96,29 @@ Integer Integer::operator*(const Integer other) const {
 
 Integer Integer::operator/(const Integer other) const {
     if (other.value == 0) {
-        throw std::invalid_argument("Äåëåíèå íà íîëü!");
+        throw std::invalid_argument("Ð”ÐµÐ»ÐµÐ½Ð¸Ðµ Ð½Ð° Ð½Ð¾Ð»ÑŒ!");
     }
     return Integer(value / other.value);
 }
 
-Integer& Integer::operator+=(const Integer& other) {
+Integer& Integer::operator+=(const Integer& other) const {
     this->value += other.value;
     return *this;
 }
 
-Integer& Integer::operator-=(const Integer& other) {
+Integer& Integer::operator-=(const Integer& other) const {
     this->value -= other.value;
     return *this;
 }
 
-Integer& Integer::operator*=(const Integer& other) {
+Integer& Integer::operator*=(const Integer& other) const {
     this->value *= other.value;
     return *this;
 }
 
-Integer& Integer::operator/=(const Integer& other) {
+Integer& Integer::operator/=(const Integer& other) const {
     if (other.value == 0) {
-        throw std::invalid_argument("Íà íîë íåçááÿ!");
+        throw std::invalid_argument("ÐÐ° Ð½Ð¾Ð» Ð½ÐµÐ·Ð±Ð±Ñ!");
     }
     this->value /= other.value;
     return *this;
