@@ -1,8 +1,8 @@
 #include <iostream>  
 #include <Windows.h> 
-#include "52yariklohh.hpp"
+#include "Integer.hpp"
 #include "Rational.hpp"
-
+//https://github.com/YupiSoftwarePunk/OOP_REPO/blob/master/Integer.cpp
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -13,38 +13,38 @@ int main() {
     std::cout << "a = " << num.getValue() << "\nb = " << num2.getValue();
 
     if (num.isEven()) {
-        std::cout << "\n×èñëî " << num.getValue() << " ÷¸òíîå\n";
+        std::cout << "\nÐ§Ð¸ÑÐ»Ð¾ " << num.getValue() << " Ñ‡Ñ‘Ñ‚Ð½Ð¾Ðµ\n";
     }
 
     if (num.isOdd()) {
-        std::cout << "×èñëî " << num.getValue() << " íå÷¸òíîå\n";
+        std::cout << "Ð§Ð¸ÑÐ»Ð¾ " << num.getValue() << " Ð½ÐµÑ‡Ñ‘Ñ‚Ð½Ð¾Ðµ\n";
     }
 
     if (num.isPositive()) {
-        std::cout << "×èñëî " << num.getValue() << " ïîëîæèòåëüíîå\n";
+        std::cout << "Ð§Ð¸ÑÐ»Ð¾ " << num.getValue() << " Ð¿Ð¾Ð»Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ\n";
     }
 
     if (num.isNegative()) {
-        std::cout << "×èñëî " << num.getValue() << " îòðèöàòåëüíîå\n";
+        std::cout << "Ð§Ð¸ÑÐ»Ð¾ " << num.getValue() << " Ð¾Ñ‚Ñ€Ð¸Ñ†Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ\n";
     }
 
     if (num.isProstoe()) {
-        std::cout << "×èñëî " << num.getValue() << " ïðîñòîå\n";
+        std::cout << "Ð§Ð¸ÑÐ»Ð¾ " << num.getValue() << " Ð¿Ñ€Ð¾ÑÑ‚Ð¾Ðµ\n";
     }
     else {
-        std::cout << "×èñëî " << num.getValue() << " íå ïðîñòîå\n";
+        std::cout << "Ð§Ð¸ÑÐ»Ð¾ " << num.getValue() << " Ð½Ðµ Ð¿Ñ€Ð¾ÑÑ‚Ð¾Ðµ\n";
     }
 
     if (num.isCoprime(num2)) {
-        std::cout << "×èñëà " << num.getValue() << " è " << num2.getValue() << " ÿâëÿþòñÿ âçàèìîïðîñòûìè\n";
+        std::cout << "Ð§Ð¸ÑÐ»Ð° " << num.getValue() << " Ð¸ " << num2.getValue() << " ÑÐ²Ð»ÑÑŽÑ‚ÑÑ Ð²Ð·Ð°Ð¸Ð¼Ð¾Ð¿Ñ€Ð¾ÑÑ‚Ñ‹Ð¼Ð¸\n";
     }
     else {
-        std::cout << "×èñëà " << num.getValue() << " è " << num2.getValue() << " íå ÿâëÿþòñÿ âçàèìîïðîñòûìè\n";
+        std::cout << "Ð§Ð¸ÑÐ»Ð° " << num.getValue() << " Ð¸ " << num2.getValue() << " Ð½Ðµ ÑÐ²Ð»ÑÑŽÑ‚ÑÑ Ð²Ð·Ð°Ð¸Ð¼Ð¾Ð¿Ñ€Ð¾ÑÑ‚Ñ‹Ð¼Ð¸\n";
     }
 
     std::cout << "\n\n";
-    std::cout << "ÍÎÄ = " << num.nod2(num2) << "\n";
-    std::cout << "ÍÎÊ = " << num.nok(num2) << "\n";
+    std::cout << "ÐÐžÐ” = " << num.nod2(num2) << "\n";
+    std::cout << "ÐÐžÐš = " << num.nok(num2) << "\n";
     std::cout << "\n\n";
 
     Integer c1 = num + num2;
@@ -57,10 +57,10 @@ int main() {
 
     Integer c9 = ++num;
     Integer c10 = num++;
-    std::cout << "Ñëîæåíèå: " << c1.getValue() << '\n';
-    std::cout << "Âû÷èòàíèå: " << c2.getValue() << '\n';
-    std::cout << "Óìíîæåíèå: " << c3.getValue() << '\n';
-    std::cout << "Äåëåíèå: " << c4.getValue() << '\n';
+    std::cout << "Ð¡Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ: " << c1.getValue() << '\n';
+    std::cout << "Ð’Ñ‹Ñ‡Ð¸Ñ‚Ð°Ð½Ð¸Ðµ: " << c2.getValue() << '\n';
+    std::cout << "Ð£Ð¼Ð½Ð¾Ð¶ÐµÐ½Ð¸Ðµ: " << c3.getValue() << '\n';
+    std::cout << "Ð”ÐµÐ»ÐµÐ½Ð¸Ðµ: " << c4.getValue() << '\n';
     std::cout << "\n\n";
 
     num = 4, num2 = -12;
@@ -101,8 +101,8 @@ int main() {
     Integer c5 = +num;
     Integer c6 = -num2;
 
-    std::cout << "num3 (óíàðíûé ïëþñ num1): " << c5.getValue() << '\n';
-    std::cout << "num4 (óíàðíûé ìèíóñ num2): " << c6.getValue() << '\n';
+    std::cout << "num3 (ÑƒÐ½Ð°Ñ€Ð½Ñ‹Ð¹ Ð¿Ð»ÑŽÑ num1): " << c5.getValue() << '\n';
+    std::cout << "num4 (ÑƒÐ½Ð°Ñ€Ð½Ñ‹Ð¹ Ð¼Ð¸Ð½ÑƒÑ num2): " << c6.getValue() << '\n';
 
     return 0;
 }
